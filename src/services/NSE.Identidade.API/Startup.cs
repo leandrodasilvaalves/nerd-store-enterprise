@@ -39,7 +39,13 @@ namespace NSE.Identidade.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NSE.Identidade.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { 
+                    Title = "NerdStore Enterprise Identity API", 
+                    Description = "Esta api faz parte do curso  ASP.NET Core Enterprise Application",
+                    Contact = new OpenApiContact() { Name = "Leandro Alves", Email = "leandro.silva.alves86@gmail.com"},
+                    License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT")},
+                    Version = "v1" 
+                });
             });
         }
 
