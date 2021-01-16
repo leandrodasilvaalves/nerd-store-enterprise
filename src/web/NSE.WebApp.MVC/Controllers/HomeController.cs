@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NSE.WebApp.MVC.Models;
 using System;
@@ -39,7 +40,7 @@ namespace NSE.WebApp.MVC.Controllers
             }
             else if(id == 403)
             {
-                modelErro.Mensagem = "Você não tem permissão par fzer isto.";
+                modelErro.Mensagem = "Você não tem permissão par fazer isto.";
                 modelErro.Titulo = "Acesso Negado";
             }
             else
