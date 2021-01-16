@@ -9,7 +9,12 @@ namespace NSE.WebApp.MVC.Controllers
         protected bool ResponePossuiErros(ResponseResult resposta)
         {
             if (resposta != null && resposta.Errors.Mensagens.Any())
+            {
+                foreach(var mensgem in resposta.Errors.Mensagens)
+                    ModelState.AddModelError(string.Empty, mensgem);
+
                 return true;
+            }
 
             return false;
         }
