@@ -29,6 +29,7 @@ namespace NSE.WebApp.MVC.Controllers
         [HttpPost("nova-conta")]
         public async Task<IActionResult> Registro(UsuarioRegistro usuarioRegistro)
         {
+            return new StatusCodeResult(401);
             if (!ModelState.IsValid) return View(usuarioRegistro);
 
             //API - REGISTRO
@@ -49,7 +50,7 @@ namespace NSE.WebApp.MVC.Controllers
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(UsuarioLogin usuarioLogin)
-        {
+        {            
             if (!ModelState.IsValid) return View(usuarioLogin);
 
             //API - Login
