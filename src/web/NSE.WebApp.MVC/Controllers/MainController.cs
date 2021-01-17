@@ -10,7 +10,7 @@ namespace NSE.WebApp.MVC.Controllers
         {
             if (resposta != null && resposta.Errors.Mensagens.Any())
             {
-                foreach(var mensgem in resposta.Errors.Mensagens)
+                foreach (var mensgem in resposta.Errors.Mensagens)
                     ModelState.AddModelError(string.Empty, mensgem);
 
                 return true;

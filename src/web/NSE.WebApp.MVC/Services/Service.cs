@@ -24,7 +24,7 @@ namespace NSE.WebApp.MVC.Services
 
         protected bool TratarErrosRespone(HttpResponseMessage response)
         {
-            switch((int)response.StatusCode)
+            switch ((int)response.StatusCode)
             {
                 case 401:
                 case 403:

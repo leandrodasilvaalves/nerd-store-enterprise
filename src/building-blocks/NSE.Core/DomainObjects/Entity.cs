@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NSE.Core.DomainObjects
 {
@@ -29,7 +25,7 @@ namespace NSE.Core.DomainObjects
             return $"{GetType().Name} [Id={Id}]";
         }
 
-        public static bool operator == (Entity a, Entity b)
+        public static bool operator ==(Entity a, Entity b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
                 return true;
@@ -40,7 +36,7 @@ namespace NSE.Core.DomainObjects
             return a.Equals(b);
         }
 
-        public static bool operator != (Entity a, Entity b)
+        public static bool operator !=(Entity a, Entity b)
         {
             return !(a == b);
         }

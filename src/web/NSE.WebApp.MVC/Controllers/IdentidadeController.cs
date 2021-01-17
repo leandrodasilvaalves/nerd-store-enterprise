@@ -28,7 +28,7 @@ namespace NSE.WebApp.MVC.Controllers
 
         [HttpPost("nova-conta")]
         public async Task<IActionResult> Registro(UsuarioRegistro usuarioRegistro)
-        {            
+        {
             if (!ModelState.IsValid) return View(usuarioRegistro);
 
             //API - REGISTRO
@@ -62,7 +62,7 @@ namespace NSE.WebApp.MVC.Controllers
             //REALIZAR LOGIN
             await RealizarLogin(resposta);
 
-            if(string.IsNullOrEmpty(returnUrl)) return RedirectToAction("Index", "Home");
+            if (string.IsNullOrEmpty(returnUrl)) return RedirectToAction("Index", "Home");
             return LocalRedirect(returnUrl);
         }
 
@@ -88,7 +88,7 @@ namespace NSE.WebApp.MVC.Controllers
             };
 
             await HttpContext.SignInAsync(
-                CookieAuthenticationDefaults.AuthenticationScheme,                
+                CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(claimsIdentity),
                 authProperties);
         }

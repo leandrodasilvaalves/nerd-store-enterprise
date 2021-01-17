@@ -8,7 +8,7 @@ namespace NSE.WebApp.MVC.Extensions
 {
     public interface IUser
     {
-        string Name { get;  }
+        string Name { get; }
         Guid ObterUserId();
         string ObterUserEmail();
         string ObterUserToken();

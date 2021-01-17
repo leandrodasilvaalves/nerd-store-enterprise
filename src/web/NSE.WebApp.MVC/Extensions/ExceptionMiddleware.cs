@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NSE.WebApp.MVC.Extensions
@@ -31,7 +27,7 @@ namespace NSE.WebApp.MVC.Extensions
 
         private static void HandlerRequestExceptionAsync(HttpContext context, CustomHttpRequestException httpRequestException)
         {
-            if(httpRequestException.StatusCode == HttpStatusCode.Unauthorized)
+            if (httpRequestException.StatusCode == HttpStatusCode.Unauthorized)
             {
                 context.Response.Redirect($"/login?ReturnUrl={context.Request.Path}");
                 return;
