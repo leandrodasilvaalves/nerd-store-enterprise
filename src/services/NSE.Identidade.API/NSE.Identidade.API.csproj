@@ -25,4 +25,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\building-blocks\NSE.WebAPI.Core\NSE.WebAPI.Core.csproj" />
+  </ItemGroup>
+
 </Project>
