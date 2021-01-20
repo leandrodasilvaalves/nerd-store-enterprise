@@ -1,9 +1,5 @@
 ﻿using NSE.Core.DomainObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NSE.Cliente.API.Models
 {
@@ -27,7 +23,6 @@ namespace NSE.Cliente.API.Models
         public string Cep { get; set; }
         public string Cidade { get; private set; }
         public string Estado { get; private set; }
-
         public Guid ClienteId { get; private set; }
         public Cliente Cliente { get; private set; }
     }
