@@ -1,8 +1,5 @@
 ﻿using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using NSE.Core.Data;
 using System.Threading.Tasks;
 
 namespace NSE.Clientes.API.Application.Commands
@@ -19,6 +16,14 @@ namespace NSE.Clientes.API.Application.Commands
         protected void AdicionarErro(string messagem)
         {
             ValidationResult.Errors.Add(new ValidationFailure(string.Empty, messagem));
+        }
+
+        protected async Task<ValidationResult> PersistirDados(IUnitOfWork uow)
+        {
+            if (!await uow.Commit())
+                AdicionarErro("Houve um erro ao persistir os dados.");
+
+            return ValidationResult;
         }
     }
 }
