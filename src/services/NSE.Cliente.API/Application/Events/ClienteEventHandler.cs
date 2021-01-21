@@ -8,6 +8,7 @@ namespace NSE.Clientes.API.Application.Events
     {
         public Task Handle(ClienteRegistradoEvent notification, CancellationToken cancellationToken)
         {
+            //fazer alguma coisa. Exemplo: Enviar email de boas vindas
             return Task.CompletedTask;
         }
     }
