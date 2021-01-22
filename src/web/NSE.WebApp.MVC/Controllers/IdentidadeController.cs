@@ -31,12 +31,9 @@ namespace NSE.WebApp.MVC.Controllers
         {
             if (!ModelState.IsValid) return View(usuarioRegistro);
 
-            //API - REGISTRO
             var resposta = await _autenticacaoService.Registro(usuarioRegistro);
-
             if (ResponePossuiErros(resposta.ResponseResult)) return View(usuarioRegistro);
 
-            //REALIZAR LOGIN
             await RealizarLogin(resposta);
             return RedirectToAction("Index", "Home");
         }
@@ -54,14 +51,10 @@ namespace NSE.WebApp.MVC.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (!ModelState.IsValid) return View(usuarioLogin);
 
-            //API - Login
             var resposta = await _autenticacaoService.Login(usuarioLogin);
-
             if (ResponePossuiErros(resposta.ResponseResult)) return View(usuarioLogin);
 
-            //REALIZAR LOGIN
             await RealizarLogin(resposta);
-
             if (string.IsNullOrEmpty(returnUrl)) return RedirectToAction("Index", "Home");
             return LocalRedirect(returnUrl);
         }
