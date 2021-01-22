@@ -3,9 +3,6 @@ using NSE.Clientes.API.Application.Commands;
 using NSE.Core.Mediator;
 using NSE.WebAPI.Core.Controllers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 

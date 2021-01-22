@@ -1,11 +1,8 @@
 ﻿using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NSE.WebAPI.Core.Controllers
 {
@@ -35,7 +32,7 @@ namespace NSE.WebAPI.Core.Controllers
         }
 
         protected ActionResult CustomResponse(ValidationResult validationResult)
-        {            
+        {
             foreach (var erro in validationResult.Errors)
                 AdicionarErroProcessamento(erro.ErrorMessage);
 

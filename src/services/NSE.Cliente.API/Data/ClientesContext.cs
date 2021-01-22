@@ -13,7 +13,7 @@ namespace NSE.Clientes.API.Data
     public class ClientesContext : DbContext, IUnitOfWork
     {
         private readonly IMediatorHandler _mediatorHandler;
-        public ClientesContext(DbContextOptions<ClientesContext> options, IMediatorHandler mediatorHandler) 
+        public ClientesContext(DbContextOptions<ClientesContext> options, IMediatorHandler mediatorHandler)
             : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
@@ -63,7 +63,8 @@ namespace NSE.Clientes.API.Data
                 .ForEach(entity => entity.Entity.LimparEventos());
 
             var tasks = domainEvents
-                .Select(async (domainEvent) => {
+                .Select(async (domainEvent) =>
+                {
                     await mediator.PublicarEvento(domainEvent);
                 });
 
