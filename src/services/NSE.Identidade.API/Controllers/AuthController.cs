@@ -27,7 +27,7 @@ namespace NSE.Identidade.API.Controllers
         private readonly IMessageBus _bus;
         public AuthController(SignInManager<IdentityUser> signInManager,
                               UserManager<IdentityUser> userManager,
-                              IOptions<AppSettings> appSettings, 
+                              IOptions<AppSettings> appSettings,
                               IMessageBus bus)
         {
             _signInManager = signInManager;
@@ -63,7 +63,7 @@ namespace NSE.Identidade.API.Controllers
                 AdicionarErroProcessamento(error.Description);
 
             return CustomResponse();
-        }        
+        }
 
         [HttpPost("autenticar")]
         public async Task<ActionResult> Login(UsuarioLogin usuarioLogin)

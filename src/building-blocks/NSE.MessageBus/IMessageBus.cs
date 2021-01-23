@@ -1,4 +1,5 @@
-﻿using NSE.Core.Messages.Integration;
+﻿using EasyNetQ;
+using NSE.Core.Messages.Integration;
 using System;
 using System.Threading.Tasks;
 
@@ -6,6 +7,9 @@ namespace NSE.MessageBus
 {
     public interface IMessageBus : IDisposable
     {
+        bool IsConnected { get; }
+        IAdvancedBus AdvancedBus { get; }
+
         void Publish<T>(T message) where T : IntegrationEvent;
         Task PublishAsync<T>(T message) where T : IntegrationEvent;
 
@@ -27,7 +31,5 @@ namespace NSE.MessageBus
         Task<IDisposable> RespondAsync<TRequest, TResponse>(Func<TRequest, Task<TResponse>> responder)
          where TRequest : IntegrationEvent
          where TResponse : ResponseMessage;
-
-        bool IsConnected { get; }
     }
 }
