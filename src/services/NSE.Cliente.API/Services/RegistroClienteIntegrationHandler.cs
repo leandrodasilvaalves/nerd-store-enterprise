@@ -1,5 +1,4 @@
-﻿using EasyNetQ;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NSE.Clientes.API.Application.Commands;
@@ -25,9 +24,20 @@ namespace NSE.Clientes.API.Services
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _bus.RespondAsync<UsuarioRegistradoIntegrationEvent, ResponseMessage>(async request 
-                => await RegistrarCliente(request));
+            SetResponder();
             return Task.CompletedTask;
+        }
+
+        private void OnConnect(object s, EventArgs e)
+        {
+            SetResponder();
+        }
+
+        private void SetResponder()
+        {
+            _bus.RespondAsync<UsuarioRegistradoIntegrationEvent, ResponseMessage>(async request
+                => await RegistrarCliente(request));
+            _bus.AdvancedBus.Connected += OnConnect;
         }
 
         private async Task<ResponseMessage> RegistrarCliente(UsuarioRegistradoIntegrationEvent message)
@@ -40,7 +50,7 @@ namespace NSE.Clientes.API.Services
                 var mediator = scope.ServiceProvider.GetRequiredService<IMediatorHandler>();
                 sucesso = await mediator.EnviarCommando(clienteCommand);
             }
-            return new  ResponseMessage(sucesso);
+            return new ResponseMessage(sucesso);
         }
     }
 }

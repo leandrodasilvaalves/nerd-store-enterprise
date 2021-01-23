@@ -30,8 +30,8 @@ namespace NSE.Clientes.API.Application.Commands
                 return ValidationResult;
             }
 
-            cliente.AdicionarEvento(new ClienteRegistradoEvent(message.Id, message.Nome, message.Email, message.Cpf));
             _clienteRepository.Adicionar(cliente);
+            cliente.AdicionarEvento(new ClienteRegistradoEvent(message.Id, message.Nome, message.Email, message.Cpf));
             return await PersistirDados(_clienteRepository.UnitOfWork);
         }
     }
