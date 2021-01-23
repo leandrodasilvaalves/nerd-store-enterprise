@@ -4,7 +4,7 @@ namespace NSE.Identidade.API.Extensions
 {
     public static class DateTimeExtensions
     {
-        public static long ToUnixEpocate(this DateTime date)
+        public static long ToUnixEpochDate(this DateTime date)
         {
             return (long)Math.Round(
                   (date.ToUniversalTime() - new DateTimeOffset(
