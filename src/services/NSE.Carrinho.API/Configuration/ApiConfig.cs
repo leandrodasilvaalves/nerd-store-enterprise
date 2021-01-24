@@ -1,20 +1,23 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NSE.Clientes.API.Data;
 using NSE.WebAPI.Core.Identidade;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace NSE.Clientes.API.Configuration
+namespace NSE.Carrinho.API.Configuration
 {
     public static class ApiConfig
     {
         public static void AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ClientesContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<CarrinhoContext>(options =>
+            //    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
 
@@ -49,5 +52,6 @@ namespace NSE.Clientes.API.Configuration
                 endpoints.MapControllers();
             });
         }
+
     }
 }
