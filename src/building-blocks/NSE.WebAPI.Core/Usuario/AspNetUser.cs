@@ -1,24 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace NSE.WebApp.MVC.Extensions
-
+namespace NSE.WebAPI.Core.Usuario
 {
-    public interface IUser
-    {
-        string Name { get; }
-        Guid ObterUserId();
-        string ObterUserEmail();
-        string ObterUserToken();
-        bool EstaAutenticado();
-        IEnumerable<Claim> ObterClaims();
-        HttpContext ObterHttpContext();
-        public bool PossuiRole(string role);
-    }
-
-    public class AspNetUser : IUser
+    public class AspNetUser : IAspNetUser
     {
         private readonly IHttpContextAccessor _acessor;
 
@@ -62,36 +52,6 @@ namespace NSE.WebApp.MVC.Extensions
         public bool PossuiRole(string role)
         {
             return _acessor.HttpContext.User.IsInRole(role);
-        }
-    }
-
-    public static class ClaimsPrincipalExtensions
-    {
-        public static string GetUserId(this ClaimsPrincipal principal)
-        {
-            if (principal == null)
-                throw new ArgumentException(nameof(principal));
-
-            var claim = principal.FindFirst("sub");
-            return claim?.Value;
-        }
-
-        public static string GetUserEmail(this ClaimsPrincipal principal)
-        {
-            if (principal == null)
-                throw new ArgumentException(nameof(principal));
-
-            var claim = principal.FindFirst("email");
-            return claim?.Value;
-        }
-
-        public static string GetUserToken(this ClaimsPrincipal principal)
-        {
-            if (principal == null)
-                throw new ArgumentException(nameof(principal));
-
-            var claim = principal.FindFirst("JWT");
-            return claim?.Value;
         }
     }
 }
