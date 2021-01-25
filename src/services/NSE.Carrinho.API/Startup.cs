@@ -21,9 +21,7 @@ namespace NSE.Carrinho.API
                 .AddEnvironmentVariables();
 
             if (hostEnvironment.IsDevelopment())
-            {
                 builder.AddUserSecrets<Startup>();
-            }
 
             Configuration = builder.Build();
         }
@@ -31,18 +29,14 @@ namespace NSE.Carrinho.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApiConfiguration(Configuration);
-
             services.AddJwtConfiguration(Configuration);
-
             services.AddSwaggerConfiguration();
-
             services.RegisterServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseSwaggerConfiguration();
-
             app.UseApiConfiguration(env);
         }
     }

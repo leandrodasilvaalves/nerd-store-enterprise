@@ -20,13 +20,13 @@ namespace NSE.Carrinho.API.Models
         public Guid Id { get; set; }
 
         public Guid ClienteId { get; set; }
-        public decimal ValorTodal { get; set; }
+        public decimal ValorTotal { get; set; }
         public List<CarrinhoItem> Itens { get; set; }
         public ValidationResult ValidationResult { get; set; }
 
         internal void CalcularValorCarrinho()
         {
-            ValorTodal = Itens.Sum(p => p.CalcularValor());
+            ValorTotal = Itens.Sum(p => p.CalcularValor());
         }
 
         internal bool CarrinhoItemExistente(CarrinhoItem item)
@@ -95,7 +95,7 @@ namespace NSE.Carrinho.API.Models
                 .GreaterThan(0)
                 .WithMessage("O carrinho não possui itens");
 
-            RuleFor(c => c.ValorTodal)
+            RuleFor(c => c.ValorTotal)
                 .GreaterThan(0)
                 .WithMessage("O valor total do carrinho precisa maior que 0");
         }
