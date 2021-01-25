@@ -3,8 +3,6 @@ using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NSE.Carrinho.API.Models
 {
@@ -41,7 +39,7 @@ namespace NSE.Carrinho.API.Models
             return Itens.FirstOrDefault(p => p.ProdutoId == produtoId);
         }
 
-        internal void AdicionarItem(CarrinhoItem item)        
+        internal void AdicionarItem(CarrinhoItem item)
         {
             item.AssociarCarrinho(Id);
             if (CarrinhoItemExistente(item))

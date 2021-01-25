@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace NSE.Carrinho.API.Data
 {
-    public sealed class CarrinhoContext  : DbContext
+    public sealed class CarrinhoContext : DbContext
     {
         public CarrinhoContext(DbContextOptions<CarrinhoContext> options)
            : base(options)
@@ -38,7 +38,7 @@ namespace NSE.Carrinho.API.Data
 
             foreach (var relationship in modelBuilder
                 .Model.GetEntityTypes()
-                .SelectMany(e => e.GetForeignKeys())) 
+                .SelectMany(e => e.GetForeignKeys()))
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using NSE.WebApp.MVC.Extensions;
+using NSE.WebApp.MVC.Models;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -22,7 +23,7 @@ namespace NSE.WebApp.MVC.Services
             return JsonSerializer.Deserialize<T>(await requestMessage.Content.ReadAsStringAsync(), options);
         }
 
-        protected bool TratarErrosRespone(HttpResponseMessage response)
+        protected bool TratarErrosResponse(HttpResponseMessage response)
         {
             switch ((int)response.StatusCode)
             {
@@ -37,6 +38,11 @@ namespace NSE.WebApp.MVC.Services
 
             response.EnsureSuccessStatusCode();
             return true;
+        }
+
+        protected ResponseResult RetornoOk()
+        {
+            return new ResponseResult();
         }
     }
 }

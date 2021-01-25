@@ -1,9 +1,5 @@
 ﻿using FluentValidation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NSE.Carrinho.API.Models
 {
@@ -22,7 +18,7 @@ namespace NSE.Carrinho.API.Models
         public string Imagem { get; set; }
         public Guid CarrinhoId { get; set; }
         public CarrinhoCliente CarrinhoCliente { get; set; }
-        
+
         internal void AssociarCarrinho(Guid carrinhoId)
         {
             CarrinhoId = carrinhoId;
@@ -42,7 +38,7 @@ namespace NSE.Carrinho.API.Models
             Quantidade = unidades;
         }
 
-        internal bool EhValido() 
+        internal bool EhValido()
         {
             return new ItemCarrinhoValidation().Validate(this).IsValid;
         }

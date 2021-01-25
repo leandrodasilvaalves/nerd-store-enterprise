@@ -21,14 +21,14 @@ namespace NSE.WebApp.MVC.Services
         public async Task<ProdutoViewModel> ObterPorId(Guid id)
         {
             var respone = await _httpClient.GetAsync($"/catalogo/produtos/{id}");
-            TratarErrosRespone(respone);
+            TratarErrosResponse(respone);
             return await DeserializarObjetoResponse<ProdutoViewModel>(respone);
         }
 
         public async Task<IEnumerable<ProdutoViewModel>> ObterTodos()
         {
             var respone = await _httpClient.GetAsync($"/catalogo/produtos");
-            TratarErrosRespone(respone);
+            TratarErrosResponse(respone);
             return await DeserializarObjetoResponse<IEnumerable<ProdutoViewModel>>(respone);
         }
     }
