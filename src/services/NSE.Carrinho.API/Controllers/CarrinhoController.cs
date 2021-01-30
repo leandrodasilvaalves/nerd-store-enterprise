@@ -38,7 +38,7 @@ namespace NSE.Carrinho.API.Controllers
             else
                 ManinpularCarrinhoExistente(carrinho, item);
 
-            
+
             if (!OperacaoValida()) return CustomResponse();
 
             await PersistirDAdos();
@@ -106,7 +106,7 @@ namespace NSE.Carrinho.API.Controllers
                 _context.CarrinhoItens.Update(carrinho.ObterPorProdutoId(item.ProdutoId));
             else
                 _context.CarrinhoItens.Add(item);
-                        
+
             _context.CarrinhoCliente.Update(carrinho);
         }
 

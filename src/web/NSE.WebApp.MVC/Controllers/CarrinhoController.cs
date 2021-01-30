@@ -14,7 +14,7 @@ namespace NSE.WebApp.MVC.Controllers
         private readonly ICarrinhoService _carrinhoService;
         private readonly ICatalogoService _catalogoService;
 
-        public CarrinhoController(ICarrinhoService carrinhoService, 
+        public CarrinhoController(ICarrinhoService carrinhoService,
                                   ICatalogoService catalogoService)
         {
             _carrinhoService = carrinhoService;
@@ -32,7 +32,7 @@ namespace NSE.WebApp.MVC.Controllers
         public async Task<IActionResult> AdicionarItemCarrinho(ItemProdutoViewModel itemProduto)
         {
             var produto = await _catalogoService.ObterPorId(itemProduto.ProdutoId);
-            
+
             ValidarItemCarrinho(produto, itemProduto.Quantidade);
             if (!OperacaoValida()) return View("Index", await _carrinhoService.ObterCarrinho());
 
@@ -41,7 +41,7 @@ namespace NSE.WebApp.MVC.Controllers
             itemProduto.Imagem = produto.Imagem;
 
             var resposta = await _carrinhoService.AdicionarItemCarrinho(itemProduto);
-            if (ResponePossuiErros(resposta)) 
+            if (ResponePossuiErros(resposta))
                 return View("Index", await _carrinhoService.ObterCarrinho());
 
             return RedirectToAction("Index");
@@ -57,8 +57,8 @@ namespace NSE.WebApp.MVC.Controllers
 
             var itemProduto = new ItemProdutoViewModel { ProdutoId = produtoId, Quantidade = quantidade };
             var resposta = await _carrinhoService.AtualizarItemCarrinho(produtoId, itemProduto);
-            
-            if (ResponePossuiErros(resposta)) 
+
+            if (ResponePossuiErros(resposta))
                 return View("Index", await _carrinhoService.ObterCarrinho());
 
             return RedirectToAction("Index");
