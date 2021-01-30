@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.Extensions.DependencyInjection;
+using NSE.WebAPI.Core.Extensions;
 using NSE.WebAPI.Core.Usuario;
 using NSE.WebApp.MVC.Extensions;
 using NSE.WebApp.MVC.Services;
@@ -35,32 +36,11 @@ namespace NSE.WebApp.MVC.Configuration
                 .AddTransientHttpErrorPolicy(p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
 
             services.AddHttpClient<ICarrinhoService, CarrinhoService>()
-                .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>();
-            //.AddPolicyHandler(PollyExtensions.EsperarTentar())
-            //.AddTransientHttpErrorPolicy(p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+                .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
+            .AddPolicyHandler(PollyExtensions.EsperarTentar())
+            .AddTransientHttpErrorPolicy(p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
 
             #endregion
         }
-    }
-
-    public class PollyExtensions
-    {
-        public static AsyncRetryPolicy<HttpResponseMessage> EsperarTentar()
-        {
-            var retry = HttpPolicyExtensions
-                .HandleTransientHttpError()
-                .WaitAndRetryAsync(new[]
-                {
-                    TimeSpan.FromSeconds(1),
-                    TimeSpan.FromSeconds(5),
-                    TimeSpan.FromSeconds(10),
-                }, (outcome, timespan, retryCount, context) =>
-                {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine($"Tentando pela {retryCount} vez!");
-                    Console.ForegroundColor = ConsoleColor.White;
-                });
-            return retry;
-        }
-    }
+    }    
 }
