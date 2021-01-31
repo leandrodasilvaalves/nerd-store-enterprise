@@ -85,7 +85,8 @@ namespace NSE.Bff.Compras.Controllers
             return CustomResponse(resposta);
         }
 
-        [HttpPost("compras/carrinho/aplicar-voucher")]
+        [HttpPost]
+        [Route("compras/carrinho/aplicar-voucher")]
         public async Task<IActionResult> AplicarVoucher([FromBody] string voucherCodigo)
         {
             var voucher = await _pedidoService.ObterVoucherPorCodigo(voucherCodigo);
