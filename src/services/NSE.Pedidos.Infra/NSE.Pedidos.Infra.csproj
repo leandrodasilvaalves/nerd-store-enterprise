@@ -1,12 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Mappings\" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NSE.Pedidos.Domain\NSE.Pedidos.Domain.csproj" />

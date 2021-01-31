@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace NSE.Pedido.API
+namespace NSE.Pedidos.API
 {
     public class Program
     {
