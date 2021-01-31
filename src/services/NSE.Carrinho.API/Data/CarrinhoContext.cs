@@ -29,7 +29,25 @@ namespace NSE.Carrinho.API.Data
 
             modelBuilder.Entity<CarrinhoCliente>()
                 .HasIndex(c => c.ClienteId)
-                .HasName("IDX_Cliente");
+                .HasDatabaseName("IDX_Cliente");
+
+            modelBuilder.Entity<CarrinhoCliente>()
+                .Ignore(c => c.Voucher)
+                .OwnsOne(c => c.Voucher, v =>
+                {
+                    v.Property(vc => vc.Codigo)
+                        .HasColumnName("VoucherCodigo")
+                        .HasColumnType("varchar(50)");
+
+                    v.Property(vc => vc.TipoDesconto)
+                        .HasColumnName("TipoDescont");
+
+                    v.Property(vc => vc.Percentual)
+                        .HasColumnName("Percentual");
+
+                    v.Property(vc => vc.ValorDesconto)
+                        .HasColumnName("ValorDesconto");                      
+                });
 
             modelBuilder.Entity<CarrinhoCliente>()
                 .HasMany(c => c.Itens)

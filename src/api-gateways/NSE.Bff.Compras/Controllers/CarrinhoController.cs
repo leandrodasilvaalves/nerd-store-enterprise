@@ -18,7 +18,7 @@ namespace NSE.Bff.Compras.Controllers
 
         public CarrinhoController(
             ICarrinhoService carrinhoService,
-            ICatalogoService catalogoService, 
+            ICatalogoService catalogoService,
             IPedidoService pedidoService)
         {
             _carrinhoService = carrinhoService;
@@ -89,7 +89,7 @@ namespace NSE.Bff.Compras.Controllers
         public async Task<IActionResult> AplicarVoucher([FromBody] string voucherCodigo)
         {
             var voucher = await _pedidoService.ObterVoucherPorCodigo(voucherCodigo);
-            if(voucher is null)
+            if (voucher is null)
             {
                 AdicionarErroProcessamento("Voucher inválido ou não encontrado");
                 return CustomResponse();
