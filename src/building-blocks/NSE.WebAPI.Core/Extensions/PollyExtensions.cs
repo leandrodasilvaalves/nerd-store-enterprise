@@ -2,11 +2,7 @@
 using Polly.Extensions.Http;
 using Polly.Retry;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NSE.WebAPI.Core.Extensions
 {

@@ -7,10 +7,7 @@ using NSE.WebApp.MVC.Extensions;
 using NSE.WebApp.MVC.Services;
 using NSE.WebApp.MVC.Services.Handlers;
 using Polly;
-using Polly.Extensions.Http;
-using Polly.Retry;
 using System;
-using System.Net.Http;
 
 namespace NSE.WebApp.MVC.Configuration
 {
@@ -42,5 +39,5 @@ namespace NSE.WebApp.MVC.Configuration
 
             #endregion
         }
-    }    
+    }
 }

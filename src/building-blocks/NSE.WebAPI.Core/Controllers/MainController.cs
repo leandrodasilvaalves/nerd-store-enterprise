@@ -50,7 +50,7 @@ namespace NSE.WebAPI.Core.Controllers
         {
             if (resposta == null || !resposta.Errors.Mensagens.Any()) return false;
 
-            foreach(var mensagem in resposta.Errors.Mensagens)
+            foreach (var mensagem in resposta.Errors.Mensagens)
             {
                 AdicionarErroProcessamento(mensagem);
             }

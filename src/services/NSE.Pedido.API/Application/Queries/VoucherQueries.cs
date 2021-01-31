@@ -1,0 +1,37 @@
+﻿using NSE.Pedidos.API.Application.DTO;
+using NSE.Pedidos.Domain.Vouchers;
+using System.Threading.Tasks;
+
+namespace NSE.Pedidos.API.Application.Queries
+{
+    public interface IVoucherQueries
+    {
+        Task<VoucherDTO> ObterVoucherPorCodigo(string codigo);
+    }
+
+    public class VoucherQueries : IVoucherQueries
+    {
+        private readonly IVoucherRepository _voucerRepository;
+
+        public VoucherQueries(IVoucherRepository voucerRepository)
+        {
+            _voucerRepository = voucerRepository;
+        }
+
+        public async Task<VoucherDTO> ObterVoucherPorCodigo(string codigo)
+        {
+            var voucher = await _voucerRepository.ObterVoucherPorCodigo(codigo);
+
+            if (voucher == null) return null;
+            if (!voucher.EstaValidoParaUtilizacao()) return null;
+
+            return new VoucherDTO
+            {
+                Codigo = voucher.Codigo,
+                TipoDesconto = (int)voucher.TipoDesconto,
+                Percentual = voucher.Percentual,
+                ValorDesconto = voucher.ValorDesconto,
+            };
+        }
+    }
+}
