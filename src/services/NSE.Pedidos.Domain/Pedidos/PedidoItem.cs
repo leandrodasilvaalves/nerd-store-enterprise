@@ -1,8 +1,9 @@
-﻿using System;
+﻿using NSE.Core.DomainObjects;
+using System;
 
 namespace NSE.Pedidos.Domain.Pedidos
 {
-    public class PedidoItem
+    public class PedidoItem : Entity
     {
         public PedidoItem(Guid pedidoId, Guid produtoId, string produtoNome,
             int quantidade, decimal valorUnitario, string produtoImagem = null)
