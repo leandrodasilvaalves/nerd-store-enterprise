@@ -46,7 +46,7 @@ namespace NSE.Carrinho.API.Data
                         .HasColumnName("Percentual");
 
                     v.Property(vc => vc.ValorDesconto)
-                        .HasColumnName("ValorDesconto");                      
+                        .HasColumnName("ValorDesconto");
                 });
 
             modelBuilder.Entity<CarrinhoCliente>()

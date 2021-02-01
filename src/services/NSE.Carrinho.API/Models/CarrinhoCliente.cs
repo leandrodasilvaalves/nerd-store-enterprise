@@ -46,7 +46,7 @@ namespace NSE.Carrinho.API.Models
             decimal desconto = 0;
             var valor = ValorTotal;
 
-            if(Voucher.TipoDesconto == TipoDescontoVoucher.Porcentagem)
+            if (Voucher.TipoDesconto == TipoDescontoVoucher.Porcentagem)
             {
                 if (Voucher.Percentual.HasValue)
                 {

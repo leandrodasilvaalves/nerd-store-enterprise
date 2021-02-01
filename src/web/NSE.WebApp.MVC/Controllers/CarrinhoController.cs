@@ -57,7 +57,7 @@ namespace NSE.WebApp.MVC.Controllers
 
             return RedirectToAction("Index");
         }
-    
+
         [HttpPost]
         [Route("aplicar-voucher")]
         public async Task<IActionResult> AplicarVoucher(string voucherCodigo)

@@ -61,7 +61,7 @@ namespace NSE.WebApp.MVC.Services
 
             return RetornoOk();
         }
-    
+
         public async Task<ResponseResult> AplicarVoucherCarrinho(string voucher)
         {
             var itemContent = ObterConteudo(voucher);
