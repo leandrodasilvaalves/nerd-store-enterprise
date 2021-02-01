@@ -14,7 +14,7 @@ namespace NSE.Pedidos.Domain.Pedidos
         void Atualizar(Pedido pedido);
 
         DbConnection ObterConexao();
-                
+
         Task<PedidoItem> ObterItemPorId(Guid id);
         Task<PedidoItem> ObterItemPorPedido(Guid pedidoId, Guid produtoId);
     }

@@ -2,7 +2,7 @@
 using NSE.Core.Data;
 using System.Threading.Tasks;
 
-namespace NSE.Clientes.API.Application.Commands
+namespace NSE.Core.Messages
 {
     public abstract class CommandHandler
     {

@@ -5,10 +5,9 @@ namespace NSE.Pedidos.Domain.Pedidos
 {
     public class PedidoItem : Entity
     {
-        public PedidoItem(Guid pedidoId, Guid produtoId, string produtoNome,
-            int quantidade, decimal valorUnitario, string produtoImagem = null)
+        public PedidoItem(Guid produtoId, string produtoNome, int quantidade,
+            decimal valorUnitario, string produtoImagem = null)
         {
-            PedidoId = pedidoId;
             ProdutoId = produtoId;
             ProdutoNome = produtoNome;
             Quantidade = quantidade;
