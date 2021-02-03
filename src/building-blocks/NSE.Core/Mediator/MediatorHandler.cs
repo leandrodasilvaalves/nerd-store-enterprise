@@ -14,7 +14,7 @@ namespace NSE.Core.Mediator
             _mediator = mediator;
         }
 
-        public async Task<ValidationResult> EnviarCommando<T>(T commando) where T : Command
+        public async Task<ValidationResult> EnviarComando<T>(T commando) where T : Command
         {
             return await _mediator.Send(commando);
         }

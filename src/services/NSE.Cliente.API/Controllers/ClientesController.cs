@@ -20,7 +20,7 @@ namespace NSE.Clientes.API.Controllers
         [HttpGet("clientes")]
         public async Task<IActionResult> Index()
         {
-            var resultado = await _mediatorHandler.EnviarCommando(
+            var resultado = await _mediatorHandler.EnviarComando(
                 new RegistrarClienteCommand(Guid.NewGuid(), "Eduardo", "edu@edu.com", "30314299076"));
 
             return CustomResponse(resultado);
