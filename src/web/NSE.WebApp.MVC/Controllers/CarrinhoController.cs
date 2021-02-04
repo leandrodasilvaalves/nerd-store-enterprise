@@ -29,7 +29,7 @@ namespace NSE.WebApp.MVC.Controllers
         public async Task<IActionResult> AdicionarItemCarrinho(ItemCarrinhoViewModel itemCarrinho)
         {
             var resposta = await _comprasBffService.AdicionarItemCarrinho(itemCarrinho);
-            if (ResponePossuiErros(resposta))
+            if (ResponsePossuiErros(resposta))
                 return View("Index", await _comprasBffService.ObterCarrinho());
 
             return RedirectToAction("Index");
@@ -41,7 +41,7 @@ namespace NSE.WebApp.MVC.Controllers
         {
             var item = new ItemCarrinhoViewModel { ProdutoId = produtoId, Quantidade = quantidade };
             var resposta = await _comprasBffService.AtualizarItemCarrinho(produtoId, item);
-            if (ResponePossuiErros(resposta))
+            if (ResponsePossuiErros(resposta))
                 return View("Index", await _comprasBffService.ObterCarrinho());
 
             return RedirectToAction("Index");
@@ -52,7 +52,7 @@ namespace NSE.WebApp.MVC.Controllers
         public async Task<IActionResult> RemoverItemCarrinho(Guid produtoId, int quantidade)
         {
             var resposta = await _comprasBffService.RemoverItemCarrinho(produtoId);
-            if (ResponePossuiErros(resposta))
+            if (ResponsePossuiErros(resposta))
                 return View("Index", await _comprasBffService.ObterCarrinho());
 
             return RedirectToAction("Index");
@@ -63,7 +63,7 @@ namespace NSE.WebApp.MVC.Controllers
         public async Task<IActionResult> AplicarVoucher(string voucherCodigo)
         {
             var resposta = await _comprasBffService.AplicarVoucherCarrinho(voucherCodigo);
-            if (ResponePossuiErros(resposta))
+            if (ResponsePossuiErros(resposta))
                 return View("Index", await _comprasBffService.ObterCarrinho());
 
             return RedirectToAction("Index");

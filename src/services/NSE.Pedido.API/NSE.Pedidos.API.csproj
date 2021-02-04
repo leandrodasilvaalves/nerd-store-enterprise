@@ -3,8 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>4d1d0cce-c5f7-42f8-84ff-6029e8bc0d22</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..</DockerfileContext>
     <AssemblyName>NSE.Pedidos.API</AssemblyName>
   </PropertyGroup>
 

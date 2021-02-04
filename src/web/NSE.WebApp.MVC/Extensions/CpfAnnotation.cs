@@ -35,7 +35,7 @@ namespace NSE.WebApp.MVC.Extensions
         }
     }
 
-    public class CpfValidationAttributeAdapaterProvider : IValidationAttributeAdapterProvider
+    public class CpfValidationAttributeAdapterProvider : IValidationAttributeAdapterProvider
     {
         private readonly IValidationAttributeAdapterProvider _baseProvider = new ValidationAttributeAdapterProvider();
         public IAttributeAdapter GetAttributeAdapter(ValidationAttribute attribute, IStringLocalizer stringLocalizer)

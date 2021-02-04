@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NSE.Clientes.API.Configuration;
+using NSE.WebAPI.Core.Identidade;
 
 namespace NSE.Clientes.API
 {
@@ -31,7 +32,7 @@ namespace NSE.Clientes.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApiConfiguration(Configuration);
-            //services.AddJwtConfiguration(Configuration);
+            services.AddJwtConfiguration(Configuration);
             services.AddSwaggerConfiguration();
             services.AddMediatR(typeof(Startup));
             services.RegisterServices();
