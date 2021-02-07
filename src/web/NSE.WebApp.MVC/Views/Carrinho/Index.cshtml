@@ -11,7 +11,7 @@
         <vc:Summary></vc:Summary>
 
         @{
-            if (Model.Itens.Any())
+            if (Model.Itens is not null && Model.Itens.Any())
             {
                 <div class="row">
                     <main class="col-md-9">

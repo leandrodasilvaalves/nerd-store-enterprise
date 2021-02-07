@@ -38,7 +38,7 @@ namespace NSE.Bff.Compras.Controllers
         public async Task<int> ObterQuantidadeCarrinho()
         {
             var carrinho = await _carrinhoService.ObterCarrinho();
-            return carrinho?.Itens.Sum(i => i.Quantidade) ?? 0;
+            return carrinho?.Itens?.Sum(i => i.Quantidade) ?? 0;
 
         }
 
@@ -105,7 +105,7 @@ namespace NSE.Bff.Compras.Controllers
             if (quantidade < 1) AdicionarErroProcessamento($"Escolha ao menos uma unidade do produto {produto.Nome}");
 
             var carrinho = await _carrinhoService.ObterCarrinho();
-            var itemCarrinho = carrinho.Itens.FirstOrDefault(p => p.ProdutoId == produto.Id);
+            var itemCarrinho = carrinho.Itens?.FirstOrDefault(p => p.ProdutoId == produto.Id);
 
             if (itemCarrinho != null && itemCarrinho.Quantidade + quantidade > produto.QuantidadeEstoque)
             {

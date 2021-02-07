@@ -10,9 +10,9 @@ namespace NSE.Carrinho.API.Models
     {
         public readonly static int MAX_QUANTIDADE_ITEM = 5;
 
-        public CarrinhoCliente() { }
+        public CarrinhoCliente() { Itens = new List<CarrinhoItem>(); }
 
-        public CarrinhoCliente(Guid clienteId)
+        public CarrinhoCliente(Guid clienteId) : this()
         {
             Id = Guid.NewGuid();
             ClienteId = clienteId;
@@ -69,7 +69,7 @@ namespace NSE.Carrinho.API.Models
 
         internal bool CarrinhoItemExistente(CarrinhoItem item)
         {
-            return Itens.Any(p => p.ProdutoId == item.ProdutoId);
+            return Itens is not null && Itens.Any(p => p.ProdutoId == item.ProdutoId);
         }
 
         internal CarrinhoItem ObterPorProdutoId(Guid produtoId)
