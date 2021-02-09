@@ -4,7 +4,7 @@ using NSE.Pagamentos.NerdsPag;
 using System;
 using System.Threading.Tasks;
 
-namespace NSE.Pagamentos.API.IFacade
+namespace NSE.Pagamentos.API.Facade
 {
     public class PagamentoCartaoCreditoFacade : IPagamentoFacade
     {

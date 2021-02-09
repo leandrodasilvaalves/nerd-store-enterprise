@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NSE.Pagamentos.API.Data;
-using NSE.Pagamentos.API.IFacade;
+using NSE.Pagamentos.API.Facade;
 using NSE.WebAPI.Core.Identidade;
 
 namespace NSE.Pagamentos.API.Configuration

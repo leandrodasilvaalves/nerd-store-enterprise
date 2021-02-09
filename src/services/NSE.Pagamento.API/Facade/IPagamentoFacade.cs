@@ -1,7 +1,7 @@
 ﻿using NSE.Pagamentos.API.Models;
 using System.Threading.Tasks;
 
-namespace NSE.Pagamentos.API.IFacade
+namespace NSE.Pagamentos.API.Facade
 {
     public interface IPagamentoFacade
     {
