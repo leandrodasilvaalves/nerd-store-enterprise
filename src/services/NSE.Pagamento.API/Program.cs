@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace NSE.Pagamento.API
+namespace NSE.Pagamentos.API
 {
     public class Program
     {

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NSE.Pagamento.API.Controllers
+namespace NSE.Pagamentos.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
