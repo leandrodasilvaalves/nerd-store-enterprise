@@ -2,11 +2,8 @@
 using NSE.Bff.Compras.Extensions;
 using NSE.Bff.Compras.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NSE.Bff.Compras.Services

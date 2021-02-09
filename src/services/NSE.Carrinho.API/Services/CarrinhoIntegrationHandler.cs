@@ -5,9 +5,6 @@ using NSE.Carrinho.API.Data;
 using NSE.Core.Messages.Integration;
 using NSE.MessageBus;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,7 +28,7 @@ namespace NSE.Carrinho.API.Services
 
         private void SetSubscribers()
         {
-            _bus.SubscribeAsync<PedidoRealizadoIntegrationEvent>("PedidoRealizado", 
+            _bus.SubscribeAsync<PedidoRealizadoIntegrationEvent>("PedidoRealizado",
                 async request => await ApagarCarrinho(request));
         }
 
@@ -42,11 +39,11 @@ namespace NSE.Carrinho.API.Services
             var carrinho = await context.CarrinhoCliente
                 .FirstOrDefaultAsync(c => c.ClienteId == message.ClienteId);
 
-            if(carrinho != null)
+            if (carrinho != null)
             {
                 context.CarrinhoCliente.Remove(carrinho);
                 await context.SaveChangesAsync();
             }
-        }     
+        }
     }
 }

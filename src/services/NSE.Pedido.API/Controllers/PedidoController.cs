@@ -5,10 +5,6 @@ using NSE.Pedidos.API.Application.Commands;
 using NSE.Pedidos.API.Application.Queries;
 using NSE.WebAPI.Core.Controllers;
 using NSE.WebAPI.Core.Usuario;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NSE.Pedidos.API.Controllers

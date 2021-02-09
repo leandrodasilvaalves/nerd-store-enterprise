@@ -42,9 +42,9 @@ namespace NSE.WebApp.MVC.Configuration
 
             services.AddHttpClient<IClienteService, ClienteService>()
                 .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>();
-                //.AddPolicyHandler(PollyExtensions.EsperarTentar())
-                //.AddTransientHttpErrorPolicy(
-                //    p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+            //.AddPolicyHandler(PollyExtensions.EsperarTentar())
+            //.AddTransientHttpErrorPolicy(
+            //    p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
 
             #endregion
         }

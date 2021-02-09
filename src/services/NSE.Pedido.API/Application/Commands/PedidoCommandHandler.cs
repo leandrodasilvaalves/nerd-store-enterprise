@@ -23,7 +23,7 @@ namespace NSE.Pedidos.API.Application.Commands
 
         public PedidoCommandHandler(
             IPedidoRepository pedidoRepository,
-            IVoucherRepository voucherRepository, 
+            IVoucherRepository voucherRepository,
             IMessageBus bus)
         {
             _pedidoRepository = pedidoRepository;
