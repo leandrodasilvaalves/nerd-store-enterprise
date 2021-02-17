@@ -60,7 +60,7 @@ namespace NSE.Catalogo.API.Data.Repository
                 List = produtos,
                 TotalResults = total,
                 PageIndex = pageIndex,
-                PageSize = pageIndex,
+                PageSize = pageSize,
                 Query = query,
             };
         }

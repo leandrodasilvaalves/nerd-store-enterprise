@@ -25,11 +25,11 @@ namespace NSE.WebApp.MVC.Services
             return await DeserializarObjetoResponse<ProdutoViewModel>(respone);
         }
 
-        public async Task<IEnumerable<ProdutoViewModel>> ObterTodos()
+        public async Task<PagedViewModel<ProdutoViewModel>> ObterTodos(int pageSize, int pageIndex, string query = null)
         {
-            var respone = await _httpClient.GetAsync($"/catalogo/produtos");
+            var respone = await _httpClient.GetAsync($"/catalogo/produtos?ps={pageSize}&page={pageIndex}&q={query}");
             TratarErrosResponse(respone);
-            return await DeserializarObjetoResponse<IEnumerable<ProdutoViewModel>>(respone);
+            return await DeserializarObjetoResponse<PagedViewModel<ProdutoViewModel>>(respone);
         }
     }
 }
