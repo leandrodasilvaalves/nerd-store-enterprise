@@ -8,7 +8,15 @@
     }
   },
   "profiles": {
-
+    "IIS - Dev": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,      
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sqlDebugging": true,
+      "nativeDebugging": true
+    },
     "SelfHosting": {
       "commandName": "Project",
       "launchBrowser": true,
