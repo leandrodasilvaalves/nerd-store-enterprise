@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NSE.Identidade.API.Extensions
+﻿namespace NSE.Identidade.API.Extensions
 {
     public class AppTokenSettings
     {

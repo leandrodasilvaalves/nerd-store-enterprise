@@ -17,8 +17,8 @@ namespace NSE.Carrinho.API.Services.gRPC
         private readonly CarrinhoContext _context;
 
         public CarrinhoGrpcService(
-            ILogger<CarrinhoGrpcService> logger, 
-            IAspNetUser user, 
+            ILogger<CarrinhoGrpcService> logger,
+            IAspNetUser user,
             CarrinhoContext context)
         {
             _logger = logger;
