@@ -39,7 +39,7 @@ namespace NSE.Identidade.API.Configuration
             });
 
             app.UseJwksDiscovery();
-            
+
             return app;
         }
     }

@@ -5,9 +5,6 @@ using NSE.Core.Messages.Integration;
 using NSE.MessageBus;
 using NSE.Pedidos.Domain.Pedidos;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

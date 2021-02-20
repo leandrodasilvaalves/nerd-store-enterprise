@@ -42,7 +42,7 @@ namespace NSE.Pedidos.Domain.Pedidos
         {
             PedidoStatus = PedidoStatus.Autorizado;
         }
-        
+
         public void CancelarPedido()
         {
             PedidoStatus = PedidoStatus.Cancelado;

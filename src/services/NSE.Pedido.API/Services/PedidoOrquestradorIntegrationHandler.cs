@@ -5,9 +5,7 @@ using NSE.Core.Messages.Integration;
 using NSE.MessageBus;
 using NSE.Pedidos.API.Application.Queries;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,7 +17,7 @@ namespace NSE.Pedidos.API.Services
         private readonly ILogger<PedidoOrquestradorIntegrationHandler> _logger;
         private Timer _timer;
 
-        public PedidoOrquestradorIntegrationHandler(ILogger<PedidoOrquestradorIntegrationHandler> logger, 
+        public PedidoOrquestradorIntegrationHandler(ILogger<PedidoOrquestradorIntegrationHandler> logger,
             IServiceProvider serviceProvider)
         {
             _logger = logger;
@@ -32,10 +30,10 @@ namespace NSE.Pedidos.API.Services
             _timer = new Timer(ProcessarPedidos, null, TimeSpan.Zero, TimeSpan.FromSeconds(15));
             return Task.CompletedTask;
         }
-        
+
         private async void ProcessarPedidos(object state)
         {
-            using(var scope = _serviceProvider.CreateScope())
+            using (var scope = _serviceProvider.CreateScope())
             {
                 var pedidoQueries = scope.ServiceProvider.GetRequiredService<IPedidoQueries>();
                 var pedido = await pedidoQueries.ObterPedidosAutorizados();

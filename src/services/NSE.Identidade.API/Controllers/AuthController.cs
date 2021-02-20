@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NSE.Identidade.API.Controllers
@@ -34,7 +33,7 @@ namespace NSE.Identidade.API.Controllers
                               UserManager<IdentityUser> userManager,
                               IOptions<AppSettings> appSettings,
                               IMessageBus bus,
-                              IAspNetUser aspNetUser, 
+                              IAspNetUser aspNetUser,
                               IJsonWebKeySetService jwksService)
         {
             _signInManager = signInManager;
@@ -145,7 +144,7 @@ namespace NSE.Identidade.API.Controllers
             return new UsuarioRespostaLogin
             {
                 AccessToken = encodeToken,
-                ExpireIn = TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
+                ExpireIn = TimeSpan.FromHours(1).TotalSeconds,
                 UsuarioToken = new UsuarioToken
                 {
                     Id = user.Id,
