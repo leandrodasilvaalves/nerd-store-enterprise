@@ -2,6 +2,6 @@
 {
     public class AppSettings
     {
-        public string AutenticacaoJwkUrl { get; set; }
+        public string AutenticacaoJwksUrl { get; set; }
     }
 }

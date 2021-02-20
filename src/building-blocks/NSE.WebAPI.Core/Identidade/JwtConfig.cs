@@ -23,7 +23,7 @@ namespace NSE.WebAPI.Core.Identidade
             {
                 bearerOptions.RequireHttpsMetadata = true;
                 bearerOptions.SaveToken = true;
-                bearerOptions.SetJwksOptions(new JwkOptions(appSettings.AutenticacaoJwkUrl));
+                bearerOptions.SetJwksOptions(new JwkOptions(appSettings.AutenticacaoJwksUrl));
             });
         }
 
