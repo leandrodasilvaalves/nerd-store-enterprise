@@ -46,6 +46,11 @@ namespace NSE.WebAPI.Core.Usuario
             return EstaAutenticado() ? _acessor.HttpContext.User.GetUserToken() : string.Empty;
         }
 
+        public string ObterUserRefreshToken()
+        {
+            return EstaAutenticado() ? _acessor.HttpContext.User.GetUserRefreshToken() : "";
+        }
+
         public bool PossuiRole(string role)
         {
             return _acessor.HttpContext.User.IsInRole(role);

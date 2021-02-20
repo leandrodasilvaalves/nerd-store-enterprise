@@ -11,6 +11,7 @@ namespace NSE.WebAPI.Core.Usuario
         Guid ObterUserId();
         string ObterUserEmail();
         string ObterUserToken();
+        string ObterUserRefreshToken();
         bool EstaAutenticado();
         IEnumerable<Claim> ObterClaims();
         HttpContext ObterHttpContext();
