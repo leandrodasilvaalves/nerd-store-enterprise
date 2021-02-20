@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NetDevPack.Security.JwtSigningCredentials.AspNetCore;
 using Newtonsoft.Json;
+using NSE.Identidade.API.Services;
 using NSE.WebAPI.Core.Identidade;
 using NSE.WebAPI.Core.Usuario;
 
@@ -16,6 +17,7 @@ namespace NSE.Identidade.API.Configuration
             services.AddControllers()
                 .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
+            services.AddScoped<AuthenticationService>();
             services.AddScoped<IAspNetUser, AspNetUser>();
             return services;
         }
